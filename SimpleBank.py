@@ -6,6 +6,13 @@ import sqlite3
 conn = sqlite3.connect('card.s3db')
 cur = conn.cursor()
 
+# cur.execute("""CREATE TABLE card (
+            # id integer PRIMARY KEY AUTOINCREMENT,
+            # number text,
+            # pin text,
+            # balance  INTEGER DEFAULT 0 
+            # )""")
+
 print("1. Create an account")
 print("2. Log in to account")
 print("0. Quit")
