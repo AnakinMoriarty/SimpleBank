@@ -3,8 +3,12 @@
 import random as rn
 import sqlite3
 
+# Creating database and connecting to this data
+
 conn = sqlite3.connect('card.s3db')
 cur = conn.cursor()
+
+# Creating table in database
 
 # cur.execute("""CREATE TABLE card (
             # id integer PRIMARY KEY AUTOINCREMENT,
@@ -12,6 +16,8 @@ cur = conn.cursor()
             # pin text,
             # balance  INTEGER DEFAULT 0 
             # )""")
+
+# Printing possibilities in programm 
 
 print("1. Create an account")
 print("2. Log in to account")
@@ -21,6 +27,7 @@ what_to_do = input()
 cards_in_system = {}
 checking = []
 
+# Def to creat account
 
 def creating_accout():
     start_number = 400000
@@ -66,7 +73,7 @@ def creating_accout():
     cur.execute("INSERT INTO card(number, pin, balance) VALUES(?,?,?)", (card_number, PIN, 0))
     conn.commit()
 
-
+# Def to logg into account
 
 def loggin():
     print("Enter your card number:")
@@ -81,8 +88,9 @@ def loggin():
     else:
         print("Wrong card number or PIN!")
 
+# Possibilities
 
-def posibilities():
+def possibilities():
     print("1. Balance")
     print("2. Log out")
     print("0. Exit")
